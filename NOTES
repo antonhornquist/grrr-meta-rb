@@ -1,0 +1,2 @@
+Note to self:
+When grrr-meta resolves workcopy directories it checks files or directories called "rb" and "sc" in the grrr-meta root directory. if "rb" and "sc" are files the content of the file is read and used as workcopy directory. If they are directories the actual directory is used as workcopy directories.
