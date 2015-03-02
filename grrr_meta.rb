@@ -46,12 +46,19 @@ module GrrrMeta
 			puts "	operation:"
 			puts operations.map { |operation| "\t\t#{operation}" }.join("\n")
 		end
-
 		def ensure_editor_environment_variable_is_set
 			raise "EDITOR environment variable is not set" unless ENV["EDITOR"]
 		end
 
+		def ensure_destination_folders_exist
+			raise "GRRR_META_RB_DESTINATION_FOLDER environment variable is not set" unless ENV["GRRR_META_RB_DESTINATION_FOLDER"]
+			raise "GRRR_META_SC_DESTINATION_FOLDER environment variable is not set" unless ENV["GRRR_META_SC_DESTINATION_FOLDER"]
+			raise "GRRR_META_RB_DESTINATION_FOLDER environment variable does not refer to a folder" unless File.directory?(ENV["GRRR_META_RB_DESTINATION_FOLDER"])
+			raise "GRRR_META_SC_DESTINATION_FOLDER environment variable does not refer to a folder" unless File.directory?(ENV["GRRR_META_SC_DESTINATION_FOLDER"])
+		end
+
 		def grrr_meta_generate(repo_entry, rest_of_repo, dest_types)
+			ensure_destination_folders_exist
 			dest_types.each do |dest_type|
 				stub = generate(repo_entry, rest_of_repo, dest_type)
 				write_n_diff(stub)
@@ -168,17 +175,7 @@ module GrrrMeta
 		end
 		
 		def get_workcopy_folder_path(destination_filetype)
-			path = File.join(get_rootdir, destination_filetype)
-			if File.directory?(path)
-				path
-			elsif File.file?(path)
-				path_in_file = IO.read(path).chomp
-				if File.directory?(path_in_file)
-					path_in_file
-				end
-			else
-				raise "File #{path} does not exist"
-			end or raise "Unable to determine work directory"
+			ENV["GRRR_META_#{destination_filetype.upcase}_DESTINATION_FOLDER"]
 		end
 		
 		def get_rb_and_sc_workcopy_file_paths_from_repo(repo_entry, rest_of_repo)
