@@ -52,6 +52,7 @@ has_method :validate_value, :argument => :val # TODO: change to value
 
 has_method :maximum_toggle_value
 has_method :toggle_value, :argument => :i
+has_method :flash_toggle, :arguments => [:i, :delay]
 has_method :set_toggle_value, :arguments => [:i, :val] # TODO: change to value
 has_method :set_toggle_value_action, :arguments => [:i, :val] # TODO: change to value
 
