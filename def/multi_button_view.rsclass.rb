@@ -38,6 +38,7 @@ has_setter :value_action, :argument => :val # TODO: rename to value
 has_method :validate_value, :argument => :val # TODO: rename to value
 
 has_method :button_value, :arguments => [:x, :y]
+has_method :flash_button, :arguments => [:x, :y, :delay]
 has_method :set_button_value, :arguments => [:x, :y, :val] # TODO: rename to value
 has_method :set_button_value_action, :arguments => [:x, :y, :val] # TODO: rename to value
 
