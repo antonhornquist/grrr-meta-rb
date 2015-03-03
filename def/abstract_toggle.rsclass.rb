@@ -32,10 +32,10 @@ has_method :last_value_pressed
 has_method :min_value_pressed
 has_method :max_value_pressed
 has_method :num_values_pressed
-has_method :num_values_x
-has_method :num_values_y
 has_method :maximum_value
 has_method :num_values
+has_method :num_values_x
+has_method :num_values_y
 has_method :value_at, :argument => :point
 
 comment "Thumb size"
