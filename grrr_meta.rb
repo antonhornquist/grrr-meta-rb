@@ -11,11 +11,11 @@ module GrrrMeta
 			
 			case operation
 			when "generate"
-				grrr_meta_generate(repo_entry, rest_of_repo, [:rb_stub, :sc_stub]) # TODO: refactor rsclass :: generate and remove ugly prefix here
+				generate(repo_entry, rest_of_repo, [:rb_stub, :sc_stub])
 			when "generate-rb"
-				grrr_meta_generate(repo_entry, rest_of_repo, [:rb_stub])
+				generate(repo_entry, rest_of_repo, [:rb_stub])
 			when "generate-sc"
-				grrr_meta_generate(repo_entry, rest_of_repo, [:sc_stub])
+				generate(repo_entry, rest_of_repo, [:sc_stub])
 			when "workcopyedit-rb"
 				workcopyedit_one(repo_entry, rest_of_repo, :rb_stub)
 			when "workcopyedit-sc"
@@ -57,10 +57,10 @@ module GrrrMeta
 			raise "GRRR_META_SC_DESTINATION_FOLDER environment variable does not refer to a folder" unless File.directory?(ENV["GRRR_META_SC_DESTINATION_FOLDER"])
 		end
 
-		def grrr_meta_generate(repo_entry, rest_of_repo, dest_types)
+		def generate(repo_entry, rest_of_repo, dest_types)
 			ensure_destination_folders_exist
 			dest_types.each do |dest_type|
-				stub = generate(repo_entry, rest_of_repo, dest_type)
+				stub = RSClass.generate(repo_entry, rest_of_repo, dest_type)
 				write_n_diff(stub)
 			end
 		end
@@ -111,7 +111,7 @@ module GrrrMeta
 				},
 				:content => File.read(filename)
 			}
-			parse_file(file)
+			RSClass.parse_file(file)
 		end
 		
 		def parse_def_arg(defname)
@@ -185,7 +185,7 @@ module GrrrMeta
 		end
 		
 		def get_workcopy_file_path_from_repo(repo_entry, rest_of_repo, dest_type)
-			stub = generate(repo_entry, rest_of_repo, dest_type)
+			stub = RSClass.generate(repo_entry, rest_of_repo, dest_type)
 			dest = stub[:destination]
 			get_workcopy_file_path(dest[:filetype], dest[:filename])
 		end
