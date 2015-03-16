@@ -1,6 +1,6 @@
 # grrr-meta-sc
 
-Class models and utility methods for generating class file stubs for Grrr-sc and grrr-rb
+Class definitions and utility methods for generating class file stubs for Grrr-sc and grrr-rb
 
 ## Requirements
 
