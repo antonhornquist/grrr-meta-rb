@@ -1,19 +1,19 @@
 is_subclass_of :container_view
 belongs_to_module :grrr, :sc_abbreviation => "GR"
 
-has_accessable_attribute :toggle_pressed_action
+has_accessable_attribute :toggle_pressed_action, :initial_value => nil
 has_accessable_attribute :toggle_released_action
-has_accessable_attribute :toggle_value_pressed_action
+has_accessable_attribute :toggle_value_pressed_action, :initial_value => nil
 has_accessable_attribute :toggle_range_pressed_action
-has_accessable_attribute :toggle_value_changed_action
+has_accessable_attribute :toggle_value_changed_action, :initial_value => nil
 has_readable_attribute :num_toggles
 has_readable_attribute :orientation
-has_readable_attribute :thumb_width
-has_readable_attribute :thumb_height
+has_readable_attribute :thumb_width, :initial_value => nil
+has_readable_attribute :thumb_height, :initial_value => nil
 has_attribute :coupled
 has_attribute :nillable
 has_attribute :filled
-has_attribute :values_are_inverted
+has_attribute :values_are_inverted, :initial_value => nil
 has_attribute :toggles
 
 initializes_with :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:orientation=>:vertical}, {:enabled=>true}, {:coupled=>true}, {:nillable=>false}] # TODO: orientation to be moved later in argument list

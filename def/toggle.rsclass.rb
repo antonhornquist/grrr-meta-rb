@@ -1,12 +1,12 @@
 belongs_to_module :grrr, :sc_abbreviation => "GR"
 is_subclass_of :abstract_toggle
 
-has_accessable_attribute :toggle_pressed_action
-has_accessable_attribute :toggle_released_action
-has_accessable_attribute :toggle_value_pressed_action
-has_accessable_attribute :toggle_range_pressed_action
+has_accessable_attribute :toggle_pressed_action, :initial_value => nil
+has_accessable_attribute :toggle_released_action, :initial_value => nil
+has_accessable_attribute :toggle_value_pressed_action, :initial_value => nil
+has_accessable_attribute :toggle_range_pressed_action, :initial_value => nil
 has_attribute :filled
-has_attribute :saved_range
+has_attribute :saved_range, :initial_value => nil
 
 initializes_with :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:coupled=>true}, {:nillable=>false}, {:orientation=>:vertical}]
 

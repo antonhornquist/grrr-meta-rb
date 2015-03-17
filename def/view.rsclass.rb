@@ -6,22 +6,22 @@ has_readable_class_attribute :default_indicate_repeat, :initial_value => 2, :ren
 has_readable_class_attribute :default_indicate_interval, :initial_value => 50, :render_as_rb_class_constant => true
 has_readable_class_attribute :default_flash_delay, :initial_value => 25, :render_as_rb_class_constant => true
 
-has_readable_attribute :parent
+has_readable_attribute :parent, :initial_value => nil
 has_readable_attribute :origin
 has_readable_attribute :num_cols
 has_readable_attribute :num_rows
-has_accessable_attribute :id
-has_readable_attribute :view_led_refreshed_action
-has_accessable_attribute :action
-has_attribute :is_lit_at_func
-has_attribute :value
+has_accessable_attribute :id, :initial_value => nil
+has_readable_attribute :view_led_refreshed_action, :initial_value => nil
+has_accessable_attribute :action, :initial_value => nil
+has_attribute :is_lit_at_func, :initial_value => nil
+has_attribute :value, :initial_value => nil
 has_attribute :points_pressed
 has_attribute :inverted_leds_map
 has_attribute :parent_view_led_refreshed_listener
 has_attribute :enabled
-has_attribute :view_button_state_changed_action
-has_attribute :view_was_enabled_action
-has_attribute :view_was_disabled_action
+has_attribute :view_button_state_changed_action, :initial_value => nil
+has_attribute :view_was_enabled_action, :initial_value => nil
+has_attribute :view_was_disabled_action, :initial_value => nil
 
 initializes_with :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}], :sc_init_instance_method_with_same_arguments_as_new => true
 

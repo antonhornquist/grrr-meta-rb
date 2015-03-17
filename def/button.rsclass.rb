@@ -6,8 +6,8 @@ has_readable_class_attribute :default_num_rows, :initial_value => 1, :render_as_
 has_readable_class_attribute :default_flash_delay_when_lit, :initial_value => 25, :render_as_rb_class_constant => true
 has_readable_class_attribute :default_flash_delay_when_unlit, :initial_value => 50, :render_as_rb_class_constant => true
 
-has_accessable_attribute :button_pressed_action
-has_accessable_attribute :button_released_action
+has_accessable_attribute :button_pressed_action, :initial_value => nil
+has_accessable_attribute :button_released_action, :initial_value => nil
 has_accessable_attribute :behavior
 has_writeable_attribute :coupled
 has_attribute :button_was_pressed

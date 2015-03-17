@@ -1,7 +1,9 @@
 is_subclass_of :container_view
 belongs_to_module :grrr, :sc_abbreviation => "GR"
 
-has_readable_attribute :current_view
+has_readable_attribute :current_view, :initial_value => nil
+
+initializes_with :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:press_through=>false}] # TODO: copied from container_view just to initialize @current_view
 
 has_method :add_child, :arguments => [:view, :origin]
 has_method :remove_child, :argument => :view

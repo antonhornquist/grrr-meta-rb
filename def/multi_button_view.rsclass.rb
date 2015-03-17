@@ -1,9 +1,9 @@
 is_subclass_of :container_view
 belongs_to_module :grrr, :sc_abbreviation => "GR"
 
-has_accessable_attribute :button_pressed_action
+has_accessable_attribute :button_pressed_action, :initial_value => nil
 has_accessable_attribute :button_released_action
-has_accessable_attribute :button_value_changed_action
+has_accessable_attribute :button_value_changed_action, :initial_value => nil
 has_readable_attribute :button_array_size
 has_readable_attribute :behavior
 has_attribute :coupled

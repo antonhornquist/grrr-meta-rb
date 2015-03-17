@@ -6,7 +6,7 @@ has_readable_class_attribute :all
 
 has_readable_attribute :num_cols
 has_readable_attribute :num_rows
-has_readable_attribute :view
+has_readable_attribute :view, :initial_value => nil
 has_readable_attribute :origin
 has_accessable_attribute :on_remove
 has_attribute :is_removed
