@@ -10,10 +10,15 @@ has_class_attribute :key_control_area_num_cols, :initial_value => 8, :render_as_
 has_class_attribute :key_control_area_num_rows, :initial_value => 4, :render_as_rb_class_constant => true
 has_class_attribute :key_control_area_border_color, :initial_value => :black, :render_as_rb_class_constant => true
 has_class_attribute :keymaps
-has_class_attribute :keymap
+has_class_attribute :keymap_keys
+has_class_attribute :keymap_backspace
+has_class_attribute :keymap_left
+has_class_attribute :keymap_right
+has_class_attribute :keymap_down
+has_class_attribute :keymap_up
 
 has_readable_attribute :read_only
-has_readable_attribute :key_control_enabled, :initial_value => false
+has_readable_attribute :key_control_enabled
 has_attribute :window
 has_attribute :buttons
 has_attribute :key_control_area_origins
@@ -59,13 +64,13 @@ has_method :release_screen_grid_button, :arguments => [:x, :y]
 
 has_method :handle_key_control_event, :arguments => [:keycode, :pressed]
 has_method :handle_key_control_arrow_event, :arguments => [:direction, :pressed]
-has_method :handle_key_control_keymap_event, :arguments => [:keymap_index, :pressed]
+has_method :handle_key_control_keymap_event, :arguments => [:keymap_keys_index, :pressed]
 
 has_predicate :is_arrow_keycode, :argument => :keycode
 has_method :arrow_keycode_to_direction, :argument => :keycode
 
 has_method :next_key_control_area
-has_method :lookup_screen_grid_button, :arguments => [:area_index, :keymap_index]
+has_method :lookup_screen_grid_button, :arguments => [:area_index, :keymap_keys_index]
 
 has_method :pr_create_window
 has_method :pr_configure_keyboard_actions
