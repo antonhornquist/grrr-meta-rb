@@ -197,7 +197,7 @@ module GrrrMeta
 		def get_user_number_in_range(range)
 			print "[#{range.min}-#{range.max}] "
 			number = STDIN.gets.chomp.to_i
-			exit unless range.include? number 
+			exit unless range.include? number
 			number
 		end
 	end
