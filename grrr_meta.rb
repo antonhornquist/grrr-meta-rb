@@ -68,25 +68,25 @@ module GrrrMeta
 		def workcopyedit_one(repo_entry, rest_of_repo, dest_type)
 			path = get_workcopy_file_path_from_repo(repo_entry, rest_of_repo, dest_type)
 			print "\"#{ENV["EDITOR"]} #{File.basename(path)}\"? [Yn] "
-			system("#{ENV["EDITOR"]} #{path}") if user_say_yes?
+			system("#{ENV["EDITOR"]} \"#{path}\"") if user_say_yes?
 		end
 		
 		def workcopyedit_both(repo_entry, rest_of_repo)
 			rb_path, sc_path = get_rb_and_sc_workcopy_file_paths_from_repo(repo_entry, rest_of_repo)
 			print "\"#{ENV["EDITOR"]} #{[rb_path, sc_path].map {|p|File.basename(p)}.join(" ")}\"? [Yn] "
-			system("#{ENV["EDITOR"]} #{[rb_path, sc_path].join(" ")}") if user_say_yes?
+			system("#{ENV["EDITOR"]} #{[rb_path, sc_path].map{|path| "\"#{path}\""}.join(" ")}") if user_say_yes?
 		end
 		
 		def workcopyedit_sidebyside(repo_entry, rest_of_repo)
 			rb_path, sc_path = get_rb_and_sc_workcopy_file_paths_from_repo(repo_entry, rest_of_repo)
 			print "\"#{ENV["EDITOR"]} -O2 #{[rb_path, sc_path].map {|p|File.basename(p)}.join(" ")}\"? [Yn] "
-			system("#{ENV["EDITOR"]} -O2 #{[rb_path, sc_path].join(" ")}") if user_say_yes?
+			system("#{ENV["EDITOR"]} -O2 #{[rb_path, sc_path].map{|path| "\"#{path}\""}.join(" ")}") if user_say_yes?
 		end
 		
 		def defedit(repo_entry)
 			defpath = get_defpath(repo_entry["source"]["name"])
 			print "\"#{ENV["EDITOR"]} #{File.basename(defpath)}\"? [Yn] "
-			system("#{ENV["EDITOR"]} #{defpath}") if user_say_yes?
+			system("#{ENV["EDITOR"]} \"#{defpath}\"") if user_say_yes?
 		end
 		
 		def get_rootdir
@@ -152,7 +152,7 @@ module GrrrMeta
 		
 			File.open("#{generated_file_path}", 'w') {|f| f.write(stub[:content])}
 			print "stub #{get_destination_language_from_filetype(dest[:filetype])}/#{File.basename(generated_file_path)} generated. diff with workcopy? [Yn] "
-			system("#{ENV["EDITOR"]} -d #{generated_file_path} #{workcopy_file_path}") if user_say_yes?
+			system("#{ENV["EDITOR"]} -d \"#{generated_file_path}\" \"#{workcopy_file_path}\"") if user_say_yes?
 		end
 		
 		def get_destination_language_from_filetype(destination_filetype)
