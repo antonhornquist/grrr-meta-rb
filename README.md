@@ -4,7 +4,9 @@ Class definitions and utility methods for generating class file stubs for Grrr-s
 
 ## Requirements
 
-A number of environment variables need to be set for editing and generation to work. See grrr_meta.rb source.
+This library requires rsclass-rb.
+
+A number of environment variables also need to be set for editing and generation to work. See grrr_meta.rb source for details.
 
 ## License
 
