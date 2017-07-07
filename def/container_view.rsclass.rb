@@ -26,9 +26,13 @@ has_predicate :is_parent_of, :argument => :view
 has_method :enabled_children
 has_predicate :has_child_at, :argument => :point
 has_method :get_children_at, :argument => :point
-has_predicate :has_enabled_child_at, :argument => :point
-has_method :get_enabled_child_at, :argument => :point
+has_predicate :has_any_enabled_child_at, :argument => :point
+has_method :get_topmost_enabled_child_at, :argument => :point
 has_predicate :is_empty
+has_method :bring_child_to_front, :argument => :view
+has_method :send_child_to_back, :argument => :view
+has_method :num_children
+has_method :pr_get_child_index, :argument => :child, :prefix_sc_arguments_with_arg => true
 
 comment "Validations"
 

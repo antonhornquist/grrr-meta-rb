@@ -30,6 +30,7 @@ has_class_method :new_disabled, :arguments => [:parent, :origin, {:num_cols=>nil
 
 comment "Bounds"
 
+has_setter :origin, :argument => :origin, :prefix_sc_arguments_with_arg => true
 has_method :num_view_buttons, :rb_method_body => %q{
 @num_cols * @num_rows
 }, :sc_method_body => %q{
@@ -105,13 +106,12 @@ has_predicate :any_lit
 has_predicate :all_lit
 has_predicate :any_unlit
 has_predicate :all_unlit
+has_method :get_led_state_within_bounds, :arguments => [:origin, :num_cols, :num_rows], :prefix_sc_arguments_with_arg => true
+has_method :pr_disable_led_forwarding_to_parent
+has_method :pr_enable_led_forwarding_to_parent
+has_method :do_then_refresh_changed_leds, :argument => :func
 
 comment "Indicate support"
-
-comment <<EOC
-	DOC:
-	Indicate schedules to set leds of a specific area or of a collection of points to first lit and the unlit. This process is repeated a specified number of times (repeat) and with a specified delay in milliseconds (interval). When done it refreshes the points. Leds will be affected even though they are covered by child views. This is mainly used to indicate added / detached views and attached / detached controllers.
-EOC
 
 has_method :indicate_view, :arguments => [{:repeat=>nil}, {:interval=>nil}]
 has_method :indicate_bounds, :arguments => [:origin, :num_cols, :num_rows, {:repeat=>nil}, {:interval=>nil}], :prefix_sc_arguments_with_arg => true
@@ -124,6 +124,8 @@ has_method :flash_view, :arguments => [{:delay=>nil}]
 has_method :flash_bounds, :arguments => [:origin, :num_cols, :num_rows, {:delay=>nil}], :prefix_sc_arguments_with_arg => true
 has_method :flash_point, :arguments => [:point, {:delay=>nil}]
 has_method :flash_points, :arguments => [:points, {:delay=>nil}]
+has_method :pr_invert_leds, :argument => :points
+has_method :pr_schedule_to_reset_leds, :arguments => [:points, :delay_in_seconds]
 
 comment "Enable / Disable View"
 
@@ -137,26 +139,8 @@ comment "Action and Value"
 
 has_method :add_action, :arguments => [:function, {:selector=>:action}]
 has_method :remove_action, :arguments => [:function, {:selector=>:action}]
-
-comment <<EOC
-	DOC:
-	Returns the current state. This will not evaluate the function assigned to action. 
-EOC
-
 has_method :value
-
-comment <<EOC
-	DOC:
-	Sets the view to display the state of a new value. This will not evaluate the function assigned to action.
-EOC
-
 has_setter :value
-
-comment <<EOC
-	DOC:
-	Sets the view to display the state of a new value, and evaluates action, if the value has changed. 
-EOC
-
 has_setter :value_action, :argument => :value, :prefix_sc_arguments_with_arg => true
 has_method :do_action
 has_method :validate_value, :arguments => [:value], :prefix_sc_arguments_with_arg => true
@@ -171,6 +155,8 @@ has_predicate :has_view_led_refreshed_action
 has_method :set_parent_reference, :arguments => [:parent, :origin], :prefix_sc_arguments_with_arg => true
 has_method :remove_parent_reference
 has_method :get_parents
+has_method :bring_to_front
+has_method :send_to_back
 
 comment "String representation"
 
