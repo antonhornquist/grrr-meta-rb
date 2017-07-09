@@ -14,6 +14,10 @@ has_class_method :new_disabled, :arguments => [:parent, :origin, {:num_cols=>nil
 
 comment "Parent - Child"
 
+has_method :switch_by_id, :argument => :id
+has_method :switch_to_child_by_index, :argument => :index
+has_method :disable_all_children
+has_method :disable_children_such_that, :argument => :predicate
 has_method :validate_ok_to_add_child, :arguments => [:view, :origin]
 has_method :add_child, :arguments => [:view, :origin]
 has_method :pr_add_child_no_flash, :arguments => [:view, :origin]
@@ -32,7 +36,7 @@ has_predicate :is_empty
 has_method :bring_child_to_front, :argument => :view
 has_method :send_child_to_back, :argument => :view
 has_method :num_children
-has_method :pr_get_child_index, :argument => :child, :prefix_sc_arguments_with_arg => true
+has_method :pr_get_child_index, :argument => :child
 
 comment "Validations"
 
@@ -40,8 +44,6 @@ has_method :validate_ok_to_enable_child, :argument => :child
 has_method :validate_ok_to_disable_child, :argument => :child
 has_method :validate_within_bounds, :arguments => [:view, :origin]
 has_predicate :is_within_bounds, :arguments => [:view, :origin]
-has_method :validate_does_not_overlap_with_enabled_children, :arguments => [:view, :origin]
-has_predicate :any_enabled_children_within_bounds, :arguments => [:origin, :num_cols, :num_rows]
 has_method :validate_parent_of, :argument => :child
 
 comment "Button events and state"

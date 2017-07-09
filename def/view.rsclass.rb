@@ -109,7 +109,7 @@ has_predicate :all_unlit
 has_method :get_led_state_within_bounds, :arguments => [:origin, :num_cols, :num_rows], :prefix_sc_arguments_with_arg => true
 has_method :pr_disable_led_forwarding_to_parent
 has_method :pr_enable_led_forwarding_to_parent
-has_method :do_then_refresh_changed_leds, :argument => :func
+has_method :pr_do_then_refresh_changed_leds, :argument => :func
 
 comment "Indicate support"
 
