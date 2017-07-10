@@ -34,11 +34,6 @@ comment "Bounds"
 has_method :num_buttons
 has_cast_method :points
 
-comment "Controller info"
-
-has_method :print_info
-has_method :info
-
 comment "Attaching and detaching"
 
 has_predicate :is_attached
