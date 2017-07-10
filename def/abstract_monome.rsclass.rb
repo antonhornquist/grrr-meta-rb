@@ -6,7 +6,7 @@ has_readable_class_attribute :all
 has_attribute :client
 has_attribute :name
 
-initializes_with :arguments => [:num_cols, :num_rows, {:view=>nil}, {:origin=>nil}, {:create_top_view_if_none_is_supplied=>true}]
+initializes_with :arguments => [:num_cols, :num_rows, :name, {:view=>nil}, {:origin=>nil}, {:create_top_view_if_none_is_supplied=>true}]
 
 has_class_method :init_class
 
