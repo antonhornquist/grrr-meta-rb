@@ -1,4 +1,4 @@
-# grrr-meta-sc
+# grrr-meta-rb
 
 Class definitions and utility methods for generating class file stubs for [Grrr-sc](http://github.com/antonhornquist/Grrr-sc) and [grrr-rb](http://github.com/antonhornquist/grrr-rb).
 
