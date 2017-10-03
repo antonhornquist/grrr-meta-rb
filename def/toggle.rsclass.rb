@@ -23,4 +23,5 @@ has_setter :filled
 has_setter :nillable
 has_method :validate_value, :argument => :value, :prefix_sc_arguments_with_arg => true
 has_method :flash, :argument => {:delay=>nil}
+has_method :flash_toggle_value, :arguments => [:value, {:delay=>nil}]
 has_predicate :pr_view_button_state_change_affected_values_pressed
