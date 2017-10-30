@@ -12,7 +12,7 @@ has_class_method :init_class
 
 has_sc_init_method :arguments => [:name], :prefix_sc_arguments_with_arg => true
 
-has_class_method :new_detached, :arguments => [{:num_cols=>nil}, {:num_rows=>nil}]
+has_class_method :new_detached, :arguments => [:num_cols, :num_rows, :name]
 
 has_method :handle_view_led_refreshed_event, :arguments => [:point, :on]
 

@@ -23,10 +23,10 @@ has_attribute :view_button_state_changed_action, :initial_value => nil
 has_attribute :view_was_enabled_action, :initial_value => nil
 has_attribute :view_was_disabled_action, :initial_value => nil
 
-initializes_with :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}], :sc_init_instance_method_with_same_arguments_as_new => true
+initializes_with :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}], :sc_init_instance_method_with_same_arguments_as_new => true
 
 has_class_method :new_detached, :arguments => [{:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}]
-has_class_method :new_disabled, :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}]
+has_class_method :new_disabled, :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}]
 
 comment "Bounds"
 

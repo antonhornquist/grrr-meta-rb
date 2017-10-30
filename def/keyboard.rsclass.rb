@@ -18,13 +18,13 @@ has_attribute :midi_note_lookup
 
 initializes_with :arguments => [:parent, :origin, {:num_cols=>7}, {:num_rows=>2}, {:enabled=>true}, {:basenote=>60}, {:coupled=>true}, {:behavior=>:momentary}]
 
-has_sc_init_method :arguments => [:parent, :origin, :basenote, :coupled, :behavior], :prefix_sc_arguments_with_arg => true
+has_sc_init_method :arguments => [{:parent=>nil}, {:origin=>nil}, :basenote, :coupled, :behavior], :prefix_sc_arguments_with_arg => true
 
 has_class_method :new_detached, :arguments => [{:num_cols=>7}, {:num_rows=>2}, {:enabled=>true}, {:basenote=>60}, {:coupled=>true}, {:behavior=>:momentary}]
 
-has_class_method :new_disabled, :arguments => [:parent, :origin, {:num_cols=>7}, {:num_rows=>2}, {:basenote=>60}, {:coupled=>true}, {:behavior=>:momentary}]
+has_class_method :new_disabled, :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>7}, {:num_rows=>2}, {:basenote=>60}, {:coupled=>true}, {:behavior=>:momentary}]
 
-has_class_method :new_decoupled, :arguments => [:parent, :origin, {:num_cols=>7}, {:num_rows=>2}, {:enabled=>true}, {:basenote=>60}, {:behavior=>:momentary}]
+has_class_method :new_decoupled, :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>7}, {:num_rows=>2}, {:enabled=>true}, {:basenote=>60}, {:behavior=>:momentary}]
 
 has_predicate :is_coupled
 has_setter :coupled

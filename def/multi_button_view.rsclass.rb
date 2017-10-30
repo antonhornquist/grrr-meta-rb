@@ -15,9 +15,9 @@ has_sc_init_method :arguments => [:parent, :origin, :coupled, :behavior], :prefi
 
 has_class_method :new_detached, :arguments => [{:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:coupled=>true}, {:behavior=>:toggle}]
 
-has_class_method :new_disabled, :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:coupled=>true}, {:behavior=>:toggle}]
+has_class_method :new_disabled, :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:coupled=>true}, {:behavior=>:toggle}]
 
-has_class_method :new_decoupled, :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:behavior=>:toggle}]
+has_class_method :new_decoupled, :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:behavior=>:toggle}]
 
 has_predicate :is_coupled
 has_setter :coupled

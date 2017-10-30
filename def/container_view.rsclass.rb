@@ -5,12 +5,12 @@ has_readable_attribute :press_through
 has_attribute :children
 has_attribute :acts_as_view
 
-initializes_with :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:press_through=>false}]
+initializes_with :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:press_through=>false}]
 
 has_sc_init_method :arguments => [:parent, :origin, :press_through], :prefix_sc_arguments_with_arg => true
 
 has_class_method :new_detached, :arguments => [{:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:press_through=>false}]
-has_class_method :new_disabled, :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:press_through=>false}]
+has_class_method :new_disabled, :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:press_through=>false}]
 
 comment "Parent - Child"
 

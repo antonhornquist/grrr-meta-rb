@@ -16,15 +16,15 @@ has_attribute :filled
 has_attribute :values_are_inverted, :initial_value => nil
 has_attribute :toggles
 
-initializes_with :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:orientation=>:vertical}, {:enabled=>true}, {:coupled=>true}, {:nillable=>false}] # TODO: orientation to be moved later in argument list
+initializes_with :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:orientation=>:vertical}, {:enabled=>true}, {:coupled=>true}, {:nillable=>false}] # TODO: orientation to be moved later in argument list
 
 has_sc_init_method :arguments => [:parent, :origin, :orientation, :coupled, :nillable], :prefix_sc_arguments_with_arg => true
 
 has_class_method :new_detached, :arguments => [{:num_cols=>nil}, {:num_rows=>nil}, {:orientation=>:vertical}, {:enabled=>true}, {:coupled=>true}, {:nillable=>false}]
 
-has_class_method :new_disabled, :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:orientation=>:vertical}, {:coupled=>true}, {:nillable=>false}]
+has_class_method :new_disabled, :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:orientation=>:vertical}, {:coupled=>true}, {:nillable=>false}]
 
-has_class_method :new_decoupled, :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:orientation=>:vertical}, {:enabled=>true}, {:nillable=>false}]
+has_class_method :new_decoupled, :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:orientation=>:vertical}, {:enabled=>true}, {:nillable=>false}]
 
 has_setter :orientation
 

@@ -5,22 +5,19 @@ has_accessable_attribute :step_pressed_action, :initial_value => nil
 has_accessable_attribute :step_released_action, :initial_value => nil
 has_accessable_attribute :step_value_changed_action, :initial_value => nil
 has_readable_attribute :playhead
-has_attribute :step_view_is_coupled # TODO
+has_attribute :step_view_is_coupled
 has_attribute :steps
 
-initializes_with :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:coupled=>true}]
+initializes_with :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:coupled=>true}]
 
 has_sc_init_method :arguments => [:coupled], :prefix_sc_arguments_with_arg => true
 
 has_class_method :new_detached, :arguments => [{:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:coupled=>true}]
 
-has_class_method :new_decoupled, :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}]
+has_class_method :new_decoupled, :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}]
 
-=begin
-TODO
 has_predicate :is_coupled
 has_setter :coupled
-=end
 
 has_predicate :step_is_pressed, :argument => :index
 has_predicate :step_is_released, :argument => :index

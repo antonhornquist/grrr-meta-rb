@@ -9,7 +9,7 @@ has_attribute :nillable
 has_attribute :values_are_inverted
 has_attribute :values_pressed
 
-initializes_with :arguments => [:parent, :origin, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:coupled=>true}, {:nillable=>false}, {:orientation=>:vertical}]
+initializes_with :arguments => [{:parent=>nil}, {:origin=>nil}, {:num_cols=>nil}, {:num_rows=>nil}, {:enabled=>true}, {:coupled=>true}, {:nillable=>false}, {:orientation=>:vertical}]
 
 has_sc_init_method :arguments => [:coupled, :nillable, :orientation], :prefix_sc_arguments_with_arg => true
 
